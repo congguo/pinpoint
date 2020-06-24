@@ -38,6 +38,7 @@ public class BaseClassFileTransformer {
         this.agentClassLoader = agentClassLoader;
     }
 
+    // cong.x.guo
     public byte[] transform(ClassLoader classLoader, String classInternalName, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classFileBuffer, ClassFileTransformer transformer) {
         final String className = JavaAssistUtils.jvmNameToJavaName(classInternalName);
 

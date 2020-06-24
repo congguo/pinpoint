@@ -50,6 +50,7 @@ public class DefaultTransformerRegistry implements BaseTransformerRegistry {
         return registry.get(classInternalName);
     }
 
+    // cong.x.guo
     @Override
     public void addTransformer(Matcher matcher, ClassFileTransformer transformer) {
         // TODO extract matcher process

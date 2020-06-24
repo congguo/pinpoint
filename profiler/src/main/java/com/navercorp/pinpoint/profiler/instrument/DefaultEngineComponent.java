@@ -55,6 +55,7 @@ public class DefaultEngineComponent implements EngineComponent {
         return scopeFactory;
     }
 
+    // cong.x.guo
     @Override
     public InterceptorDefinition createInterceptorDefinition(Class<?> interceptorClazz) {
         return this.interceptorDefinitionFactory.createInterceptorDefinition(interceptorClazz);

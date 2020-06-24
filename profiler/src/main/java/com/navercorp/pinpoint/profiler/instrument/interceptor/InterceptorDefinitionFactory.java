@@ -38,6 +38,7 @@ public class InterceptorDefinitionFactory {
         this.detectHandlers = register();
     }
 
+    // cong.x.guo
     public InterceptorDefinition createInterceptorDefinition(Class<?> interceptorClazz) {
         if (interceptorClazz == null) {
             throw new NullPointerException("targetInterceptorClazz");
@@ -157,6 +158,7 @@ public class InterceptorDefinitionFactory {
         }
 
 
+        // cong.x.guo
         public InterceptorDefinition resolveType(Class<?> targetClazz) {
             if(!this.interceptorClazz.isAssignableFrom(targetClazz)) {
                 return null;
@@ -166,6 +168,7 @@ public class InterceptorDefinitionFactory {
             return createInterceptorDefinition(casting);
         }
 
+        // cong.x.guo
         private InterceptorDefinition createInterceptorDefinition(Class<? extends Interceptor> targetInterceptorClazz) {
 
             final Method beforeMethod = searchMethod(targetInterceptorClazz, before, beforeParamList);

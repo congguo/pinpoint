@@ -69,12 +69,15 @@ public class ClassFileTransformerProvider implements Provider<ClassFileTransform
         this.dynamicTransformerRegistry = Assert.requireNonNull(dynamicTransformerRegistry, "dynamicTransformerRegistry");
     }
 
+    // cong.x.guo
     @Override
     public ClassFileTransformer get() {
 
         final LambdaClassFileResolver lambdaClassFileResolver = newLambdaClassFileResolver(profilerConfig);
 
+        // cong.x.guo
         final BaseTransformerRegistry baseTransformerRegistry = newDefaultTransformerRegistry();
+        // cong.x.guo
         final TransformerRegistry transformerRegistry = setupTransformerRegistry(baseTransformerRegistry, pluginContextLoadResult);
 
         final TransformerRegistry debugTransformerRegistry = newTransformerRegistry();
@@ -112,10 +115,12 @@ public class ClassFileTransformerProvider implements Provider<ClassFileTransform
         return new DefaultTransformerRegistry();
     }
 
+    // cong.x.guo
     private TransformerRegistry setupTransformerRegistry(BaseTransformerRegistry registry, PluginContextLoadResult pluginContexts) {
         Assert.requireNonNull(registry, "registry");
         Assert.requireNonNull(pluginContexts, "pluginContexts");
 
+        // cong.x.guo
         for (ClassFileTransformer transformer : pluginContexts.getClassFileTransformer()) {
             if (transformer instanceof MatchableClassFileTransformer) {
                 MatchableClassFileTransformer t = (MatchableClassFileTransformer) transformer;
@@ -123,6 +128,7 @@ public class ClassFileTransformerProvider implements Provider<ClassFileTransform
                     logger.info("Registering class file transformer {} for {} ", t, t.getMatcher());
                 }
                 try {
+                    // cong.x.guo
                     registry.addTransformer(t.getMatcher(), t);
                 } catch (Exception e) {
                     if (logger.isWarnEnabled()) {

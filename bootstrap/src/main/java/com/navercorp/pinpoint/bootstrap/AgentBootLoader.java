@@ -43,12 +43,14 @@ public class AgentBootLoader {
 
     public Agent boot(final AgentOption agentOption) {
 
+        // cong.x.guo: DefaultAgent Class loaded
         final Class<?> bootStrapClazz = getBootStrapClass();
 
         final Object agent = executeTemplate.execute(new Callable<Object>() {
             @Override
             public Object call() throws Exception {
                 try {
+                    // cong.x.guo: instantiate DefaultAgent class
                     Constructor<?> constructor = bootStrapClazz.getDeclaredConstructor(AgentOption.class);
                     return constructor.newInstance(agentOption);
                 } catch (InstantiationException e) {
@@ -74,6 +76,7 @@ public class AgentBootLoader {
 
     private Class<?> getBootStrapClass() {
         try {
+            // cong.x.guo: load DefaultAgent class
             return this.classLoader.loadClass(bootClass);
         } catch (ClassNotFoundException e) {
             throw new BootStrapException("boot class not found. bootClass:" + bootClass + " Error:" + e.getMessage(), e);

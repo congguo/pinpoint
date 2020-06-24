@@ -98,6 +98,7 @@ public class DruidPlugin implements ProfilerPlugin, TransformTemplateAware {
 
     public static class DruidDataSourceTransform implements TransformCallback {
 
+        // cong.x.guo
         @Override
         public byte[] doInTransform(Instrumentor instrumentor, ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws InstrumentException {
 
@@ -106,6 +107,7 @@ public class DruidPlugin implements ProfilerPlugin, TransformTemplateAware {
             if (isAvailableDataSourceMonitor(target)) {
                 target.addField(DataSourceMonitorAccessor.class);
 
+                // cong.x.guo: 以下是pinpoint对ASM操作封装后，对外提供的抽象接口
                 // closeMethod
                 InstrumentMethod closeMethod = InstrumentUtils.findMethod(target, "close");
                 closeMethod.addScopedInterceptor(DataSourceCloseInterceptor.class, DruidConstants.SCOPE);

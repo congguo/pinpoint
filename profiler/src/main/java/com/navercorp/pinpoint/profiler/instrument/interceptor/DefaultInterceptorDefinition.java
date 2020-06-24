@@ -74,6 +74,7 @@ public class DefaultInterceptorDefinition implements InterceptorDefinition {
         return captureType;
     }
 
+    // cong.x.guo
     @Override
     public Method getBeforeMethod() {
         return beforeMethod;

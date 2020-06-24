@@ -85,6 +85,7 @@ public class DefaultApplicationContext implements ApplicationContext {
         Assert.requireNonNull(moduleFactory, "moduleFactory");
         Assert.requireNonNull(agentOption.getProfilerConfig(), "profilerConfig");
 
+        // cong.x.guo
         final Instrumentation instrumentation = agentOption.getInstrumentation();
         if (logger.isInfoEnabled()) {
             logger.info("DefaultAgent classLoader:{}", this.getClass().getClassLoader());
@@ -98,6 +99,7 @@ public class DefaultApplicationContext implements ApplicationContext {
 
         this.instrumentEngine = injector.getInstance(InstrumentEngine.class);
 
+        // cong.x.guo: 通过guice来注入这些transformer
         this.classFileTransformer = injector.getInstance(ClassFileTransformer.class);
         this.dynamicTransformTrigger = injector.getInstance(DynamicTransformTrigger.class);
 
@@ -112,6 +114,7 @@ public class DefaultApplicationContext implements ApplicationContext {
 
             instrumentation.addTransformer(classFileTransformer, true);
         } else {
+            // cong.x.guo
             instrumentation.addTransformer(classFileTransformer, true);
         }
 

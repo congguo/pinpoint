@@ -361,6 +361,7 @@ public class ASMClass implements InstrumentClass {
 
 
 
+    // cguo
     private int addInterceptor0(Class<? extends Interceptor> interceptorClass, Object[] constructorArgs, InterceptorScope scope, ExecutionPolicy executionPolicy) throws InstrumentException {
         int interceptorId = -1;
 
@@ -450,6 +451,7 @@ public class ASMClass implements InstrumentClass {
     }
 
 
+    // cong.x.guoX
     @Override
     public int addInterceptor(Class<? extends Interceptor> interceptorClass) throws InstrumentException {
         Assert.requireNonNull(interceptorClass, "interceptorClass");

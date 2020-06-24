@@ -116,6 +116,7 @@ public class ASMClassNodeAdapter {
     private final ClassInputStreamProvider pluginInputStreamProvider;
     private final ClassLoader classLoader;
     private final ProtectionDomain protectionDomain;
+    // cong.x.guo: ASM提供的操作接口
     private final ClassNode classNode;
     private final boolean skipCode;
 

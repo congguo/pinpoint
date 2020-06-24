@@ -58,6 +58,7 @@ public class DefaultClassFileTransformerDispatcher implements ClassFileTransform
         this.lambdaClassFileResolver = Assert.requireNonNull(lambdaClassFileResolver, "lambdaClassFileResolver");
     }
 
+    // cong.x.guo
     @Override
     public byte[] transform(ClassLoader classLoader, String classInternalName, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classFileBuffer) throws IllegalClassFormatException {
         if (!classLoaderFilter.accept(classLoader, classInternalName, classBeingRedefined, protectionDomain, classFileBuffer)) {

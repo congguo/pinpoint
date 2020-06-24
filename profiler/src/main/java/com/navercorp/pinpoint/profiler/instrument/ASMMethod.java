@@ -108,6 +108,7 @@ public class ASMMethod implements InstrumentMethod {
         }
     }
 
+    // cong.x.guo
     @Override
     public void addInterceptor(int interceptorId) throws InstrumentException {
         final Interceptor interceptor = InterceptorRegistry.getInterceptor(interceptorId);
@@ -134,6 +135,7 @@ public class ASMMethod implements InstrumentMethod {
         return interceptorId;
     }
 
+    // cong.x.guo
     private Interceptor newInterceptor(Class<? extends Interceptor> interceptorClass, Object[] constructorArgs, InterceptorScope interceptorScope, ExecutionPolicy executionPolicy) {
         final ScopeFactory scopeFactory = this.engineComponent.getScopeFactory();
 
@@ -142,6 +144,7 @@ public class ASMMethod implements InstrumentMethod {
     }
 
 
+    // cong.x.guo
     private Interceptor createInterceptor(Class<? extends Interceptor> interceptorClass, Object[] constructorArgs, ScopeInfo scopeInfo) {
         // exception handling.
         ObjectBinderFactory objectBinderFactory = this.engineComponent.getObjectBinderFactory();
@@ -155,6 +158,7 @@ public class ASMMethod implements InstrumentMethod {
             throw new NullPointerException("interceptor");
         }
 
+        // cong.x.guo
         final InterceptorDefinition interceptorDefinition = this.engineComponent.createInterceptorDefinition(interceptor.getClass());
         final Class<?> interceptorClass = interceptorDefinition.getInterceptorClass();
         final CaptureType captureType = interceptorDefinition.getCaptureType();
@@ -173,6 +177,7 @@ public class ASMMethod implements InstrumentMethod {
             apiId = this.engineComponent.cacheApi(this.descriptor);
         }
 
+        // cong.x.guo
         // add before interceptor.
         if (isBeforeInterceptor(captureType) && interceptorDefinition.getBeforeMethod() != null) {
             this.methodNode.addBeforeInterceptor(interceptorId, interceptorDefinition, apiId);
@@ -202,6 +207,7 @@ public class ASMMethod implements InstrumentMethod {
         return CaptureType.AFTER == captureType || CaptureType.AROUND == captureType;
     }
 
+    // cong.x.guo
     @Override
     public int addInterceptor(Class<? extends Interceptor> interceptorClass) throws InstrumentException {
         Assert.requireNonNull(interceptorClass, "interceptorClass");

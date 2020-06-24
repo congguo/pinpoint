@@ -74,6 +74,7 @@ import com.navercorp.pinpoint.profiler.objectfactory.InterceptorArgumentProvider
  * @author Jongho Moon
  * @author jaehong.kim
  */
+// cong.x.guo
 public class AnnotatedInterceptorFactory implements InterceptorFactory {
     private final ProfilerConfig profilerConfig;
     private final TraceContext traceContext;

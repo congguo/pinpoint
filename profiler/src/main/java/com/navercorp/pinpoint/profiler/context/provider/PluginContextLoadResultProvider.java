@@ -39,6 +39,7 @@ public class PluginContextLoadResultProvider implements Provider<PluginContextLo
         this.pluginClassLoader = Assert.requireNonNull(pluginClassLoader, "pluginClassLoader");
     }
 
+    // cong.x.guo
     @Override
     public PluginContextLoadResult get() {
         return new DefaultPluginContextLoadResult(profilerPluginContextLoader, pluginClassLoader);

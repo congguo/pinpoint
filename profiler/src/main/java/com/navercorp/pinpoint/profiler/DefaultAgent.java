@@ -92,6 +92,7 @@ public class DefaultAgent implements Agent {
 
         this.profilerConfig = agentOption.getProfilerConfig();
 
+        // cong.x.guo
         this.applicationContext = newApplicationContext(agentOption);
 
     }
@@ -102,6 +103,7 @@ public class DefaultAgent implements Agent {
 
         ModuleFactoryResolver moduleFactoryResolver = new DefaultModuleFactoryResolver(profilerConfig.getInjectionModuleFactoryClazzName());
         ModuleFactory moduleFactory = moduleFactoryResolver.resolve();
+        // cong.x.guo
         return new DefaultApplicationContext(agentOption, moduleFactory);
     }
 
@@ -164,6 +166,7 @@ public class DefaultAgent implements Agent {
             }
         }
         logger.info("Starting {} Agent.", ProductInfo.NAME);
+        // cong.x.guo
         this.applicationContext.start();
     }
 

@@ -49,6 +49,7 @@ class PinpointStarter {
     public static final String AGENT_TYPE = "AGENT_TYPE";
 
     public static final String DEFAULT_AGENT = "DEFAULT_AGENT";
+    // cong.x.guo
     public static final String BOOT_CLASS = "com.navercorp.pinpoint.profiler.DefaultAgent";
 
     public static final String PLUGIN_TEST_AGENT = "PLUGIN_TEST";
@@ -123,13 +124,16 @@ class PinpointStarter {
                 moduleBootLoader.defineAgentModule(agentClassLoader, urls);
             }
 
+            // cong.x.guo
             final String bootClass = getBootClass();
             AgentBootLoader agentBootLoader = new AgentBootLoader(bootClass, agentClassLoader);
             logger.info(String.format("pinpoint agent [%s] starting...", bootClass));
 
             final List<String> pluginJars = agentDirectory.getPlugins();
             AgentOption option = createAgentOption(agentId, applicationName, isContainer, profilerConfig, instrumentation, pluginJars, agentDirectory);
+            // cong.x.guo
             Agent pinpointAgent = agentBootLoader.boot(option);
+            // cong.x.guo
             pinpointAgent.start();
             pinpointAgent.registerStopHandler();
 

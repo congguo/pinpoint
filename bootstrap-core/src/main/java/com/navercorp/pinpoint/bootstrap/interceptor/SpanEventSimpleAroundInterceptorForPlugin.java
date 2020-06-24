@@ -78,6 +78,7 @@ public abstract class SpanEventSimpleAroundInterceptorForPlugin implements Aroun
 
     protected abstract void doInBeforeTrace(final SpanEventRecorder recorder, final Object target, final Object[] args) throws Exception;
 
+    // cong.x.guo
     @Override
     public void after(Object target, Object[] args, Object result, Throwable throwable) {
         if (isDebug) {

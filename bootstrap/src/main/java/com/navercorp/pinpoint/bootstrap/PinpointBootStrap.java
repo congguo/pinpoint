@@ -38,6 +38,7 @@ public class PinpointBootStrap {
 
     private static final LoadState STATE = new LoadState();
 
+    // cong.x.guo
     public static void premain(String agentArgs, Instrumentation instrumentation) {
         final boolean success = STATE.start();
         if (!success) {
@@ -78,6 +79,7 @@ public class PinpointBootStrap {
         ClassLoader parentClassLoader = getParentClassLoader();
         final ModuleBootLoader moduleBootLoader = loadModuleBootLoader(instrumentation, parentClassLoader);
         PinpointStarter bootStrap = new PinpointStarter(parentClassLoader, agentArgsMap, agentDirectory, instrumentation, moduleBootLoader);
+        // cong.x.guo
         if (!bootStrap.start()) {
             logPinpointAgentLoadFail();
         }

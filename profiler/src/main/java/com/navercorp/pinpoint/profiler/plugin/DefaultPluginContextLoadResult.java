@@ -34,10 +34,12 @@ public class DefaultPluginContextLoadResult implements PluginContextLoadResult {
 
     private final PluginsSetupResult pluginsSetupResult;
 
+    // cong.x.guo
     public DefaultPluginContextLoadResult(ProfilerPluginContextLoader profilerPluginContextLoader, ClassLoader pluginClassLoader) {
         Assert.requireNonNull(profilerPluginContextLoader, "profilerPluginConfigurer");
         Assert.requireNonNull(pluginClassLoader, "pluginClassLoader");
         ProfilerPluginLoader profilerPluginLoader = new ProfilerPluginLoader();
+        // cong.x.guo
         List<ProfilerPlugin> profilerPlugins = profilerPluginLoader.load(pluginClassLoader);
         this.pluginsSetupResult = profilerPluginContextLoader.load(profilerPlugins);
     }

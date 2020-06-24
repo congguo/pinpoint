@@ -257,6 +257,7 @@ public class ASMMethodNodeAdapter {
         final InsnList instructions = new InsnList();
         this.methodVariables.loadInterceptorLocalVariables(instructions, interceptorDefinition, false);
 
+        // cong.x.guo: 这里嵌入before的代码 before()
         final String description = Type.getMethodDescriptor(interceptorDefinition.getBeforeMethod());
         instructions.add(new MethodInsnNode(Opcodes.INVOKEINTERFACE, Type.getInternalName(interceptorDefinition.getInterceptorBaseClass()), "before", description, true));
         this.methodNode.instructions.insertBefore(this.methodVariables.getEnterInsnNode(), instructions);
